@@ -224,6 +224,7 @@ class AudioRecorderController: UIViewController {
         let audioFormat = AVAudioFormat(standardFormatWithSampleRate: 44_100, channels: 1)! // if programmer error , add error mossage or log.
         audioRecorder = try? AVAudioRecorder(url: recordingURL, format: audioFormat)
         audioRecorder?.delegate = self
+        audioRecorder?.record()
         self.recordingURL = recordingURL
     }
     
