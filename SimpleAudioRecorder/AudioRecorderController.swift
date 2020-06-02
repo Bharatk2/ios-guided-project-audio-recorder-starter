@@ -88,6 +88,8 @@ class AudioRecorderController: UIViewController {
         let duration = audioPlayer?.duration ?? 0
         let timeRemaining = duration - elapsedTime
         
+        timeElapsedLabel.text = "\(elapsedTime)"
+        
         
     }
     
@@ -131,11 +133,13 @@ class AudioRecorderController: UIViewController {
     
     func play() {
         audioPlayer?.play() // don't crash if player is nil, if nothing to play, just don't do anything.
+        startTimer()
         updateViews()
     }
     
     func pause() {
         audioPlayer?.pause()
+        stopRecording()
         updateViews()
     }
     
