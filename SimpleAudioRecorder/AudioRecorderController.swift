@@ -46,7 +46,7 @@ class AudioRecorderController: UIViewController {
     
     // MARK: - Timer
     
-    /*
+    
     func startTimer() {
         timer?.invalidate()
         
@@ -55,28 +55,28 @@ class AudioRecorderController: UIViewController {
             
             self.updateViews()
             
-            if let audioRecorder = self.audioRecorder,
-                self.isRecording == true {
-                
-                audioRecorder.updateMeters()
-                self.audioVisualizer.addValue(decibelValue: audioRecorder.averagePower(forChannel: 0))
-                
-            }
-            
-            if let audioPlayer = self.audioPlayer,
-                self.isPlaying == true {
-            
-                audioPlayer.updateMeters()
-                self.audioVisualizer.addValue(decibelValue: audioPlayer.averagePower(forChannel: 0))
-            }
-        }
-    }
+//            if let audioRecorder = self.audioRecorder,
+//                self.isRecording == true {
+//                
+//                audioRecorder.updateMeters()
+//                self.audioVisualizer.addValue(decibelValue: audioRecorder.averagePower(forChannel: 0))
+//                
+//            }
+//            
+//            if let audioPlayer = self.audioPlayer,
+//                self.isPlaying == true {
+//            
+//                audioPlayer.updateMeters()
+//                self.audioVisualizer.addValue(decibelValue: audioPlayer.averagePower(forChannel: 0))
+//            }
+//        }
+//    }
+//    
+//    func cancelTimer() {
+//        timer?.invalidate()
+//        timer = nil
+//    }
     
-    func cancelTimer() {
-        timer?.invalidate()
-        timer = nil
-    }
-    */
     private func updateViews() {
         playButton.isSelected = isPlaying // here we will know if the player is being selected and played.
         
