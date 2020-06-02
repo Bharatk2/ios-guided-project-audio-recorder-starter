@@ -81,7 +81,7 @@ class AudioRecorderController: UIViewController {
     
     private func updateViews() {
         playButton.isSelected = isPlaying // here we will know if the player is being selected and played.
-        
+        recordButton.isSelected = isRecording
         // we also want to update the timer & slider
 //        TODO: Extract into helper computed properties.
         let elapsedTime = audioPlayer?.currentTime ?? 0 // use these values if it hasn't changed
@@ -226,10 +226,12 @@ class AudioRecorderController: UIViewController {
         audioRecorder?.delegate = self
         audioRecorder?.record()
         self.recordingURL = recordingURL
+        updateViews()
     }
     
     func stopRecording() {
         audioRecorder?.stop()
+        updateViews()
     }
     
     // MARK: - Actions
@@ -275,12 +277,16 @@ extension AudioRecorderController: AVAudioRecorderDelegate {
         print("finished recording: \(recordingURL.path)")
             // this method to listen yourself when recording.
             audioPlayer = try? AVAudioPlayer(contentsOf: recordingURL) // TODO: errors
+            
         }
+        
+        updateViews()
     }
     
     func audioRecorderEncodeErrorDidOccur(_ recorder: AVAudioRecorder, error: Error?) {
         if let error = error {
             print("Error recording: \(error)")
         }
+        updateViews()
     }
 }
