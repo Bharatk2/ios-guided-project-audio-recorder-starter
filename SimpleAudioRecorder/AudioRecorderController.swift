@@ -214,6 +214,7 @@ class AudioRecorderController: UIViewController {
         }
     }
     
+//  TODO: -  Start/cancel timer?
     func startRecording() {
         // to get away from having optional here.
        let recordingURL = createNewRecordingURL()
