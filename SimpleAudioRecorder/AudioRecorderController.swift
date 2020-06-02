@@ -49,7 +49,7 @@ class AudioRecorderController: UIViewController {
     // MARK: - Timer
     
     func startTimer() {
-        timer?.invalidate()
+        timer?.invalidate() // import to invalidate the timer to start a new one to prevent multiple timers.
         timer = Timer.scheduledTimer(withTimeInterval: 0.030, repeats: true) { [weak self] (_) in
             guard let self = self else { return }
             self.updateViews()
