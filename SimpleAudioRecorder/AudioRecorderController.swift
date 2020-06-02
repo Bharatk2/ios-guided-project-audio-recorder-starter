@@ -45,6 +45,11 @@ class AudioRecorderController: UIViewController {
         loadAudio()
     }
     
+    deinit {
+//        stop all timers if this screen is not visible.
+        cancelTimer()
+    }
+    
     
     // MARK: - Timer
     
