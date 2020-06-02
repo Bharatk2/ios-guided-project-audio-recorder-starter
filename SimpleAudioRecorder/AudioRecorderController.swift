@@ -89,7 +89,8 @@ class AudioRecorderController: UIViewController {
         let songURL = Bundle.main.url(forResource: "piano", withExtension: "mp3")!
         
         //FUTURE: Do more error checking and fail early if perogrammer error, or present a message to user.
-        audioPlayer = try? AVAudioPlayer(contentsOf: songURL)
+        audioPlayer = try? AVAudioPlayer(contentsOf: songURL) // wil be nil if this fails
+        
         
     }
     
@@ -102,11 +103,11 @@ class AudioRecorderController: UIViewController {
     */
     
     func play() {
-        
+        audioPlayer?.play() // don't crash if player is nil, if nothing to play, just don't do anything.
     }
     
     func pause() {
-        
+        audioPlayer?.pause()
     }
     
     
