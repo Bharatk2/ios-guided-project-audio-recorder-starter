@@ -200,6 +200,7 @@ class AudioRecorderController: UIViewController {
     
     
     func startRecording() {
+        recordingURL = createNewRecordingURL()
         
     }
     
