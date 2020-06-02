@@ -153,6 +153,10 @@ class AudioRecorderController: UIViewController {
     
     // MARK: - Recording
     
+    var recordingURL: URL?
+    
+    
+    
     func createNewRecordingURL() -> URL {
         let documents = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
         
