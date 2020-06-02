@@ -223,7 +223,7 @@ class AudioRecorderController: UIViewController {
         // 44_100 HRTZ = 44.1 KHz = FM / cd quality audio.
         let audioFormat = AVAudioFormat(standardFormatWithSampleRate: 44_100, channels: 1)! // if programmer error , add error mossage or log.
         audioRecorder = try? AVAudioRecorder(url: recordingURL, format: audioFormat)
-        audioRecorder?.delegate = self 
+        audioRecorder?.delegate = self
         self.recordingURL = recordingURL
     }
     
@@ -263,6 +263,21 @@ extension AudioRecorderController: AVAudioPlayerDelegate {
         }
       DispatchQueue.main.async {
             self.updateViews()
+        }
+    }
+}
+
+extension AudioRecorderController: AVAudioRecorderDelegate {
+    
+    func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
+        if let recordingURL = recordingURL {
+        print("finished recording: \(recordingURL.path)")
+        }
+    }
+    
+    func audioRecorderEncodeErrorDidOccur(_ recorder: AVAudioRecorder, error: Error?) {
+        if let error = error {
+            print("Error recording: \(error)")
         }
     }
 }
