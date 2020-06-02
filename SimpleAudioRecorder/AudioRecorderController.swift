@@ -83,6 +83,9 @@ class AudioRecorderController: UIViewController {
     
     var audioPlayer: AVAudioPlayer?
     
+    var isPlaying: Bool? {
+        return audioPlayer?.isPlaying ?? false // if it is not player turn it to false as default value
+    }
     
     
     func loadAudio() {
@@ -101,6 +104,10 @@ class AudioRecorderController: UIViewController {
         try session.setActive(true, options: []) // can fail if on a phone call, for instance
     }
     */
+    func togglePlayback() {
+        
+    }
+    
     
     func play() {
         audioPlayer?.play() // don't crash if player is nil, if nothing to play, just don't do anything.
