@@ -86,12 +86,17 @@ class AudioRecorderController: UIViewController {
 //        TODO: Extract into helper computed properties.
         let elapsedTime = audioPlayer?.currentTime ?? 0 // use these values if it hasn't changed
         let duration = audioPlayer?.duration ?? 0
+        //        TODO: -BUG That needs to be fixed is that the labels are not updating on time. fixed!
         let timeRemaining: TimeInterval = round(duration) - elapsedTime // assign to timeinterval to change the meaning
         // timer interval means seconds
         timeElapsedLabel.text = timeIntervalFormatter.string(from: elapsedTime)
         timeRemainingLabel.text = timeIntervalFormatter.string(from: timeRemaining)
-        
-//        TODO: -BUG That needs to be fixed is that the labels are not updating on time.
+
+        // fixing the timeslider
+        timeSlider.minimumValue = 0
+        timeSlider.maximumValue = Float(duration)
+        timeSlider.value = Float(elapsedTime)
+
     }
     
     // MARK: - Playback
