@@ -241,7 +241,7 @@ class AudioRecorderController: UIViewController {
     }
     
     @IBAction func toggleRecording(_ sender: Any) {
-        
+        toggleRecording()
     }
 }
 //Delegate
