@@ -82,6 +82,13 @@ class AudioRecorderController: UIViewController {
     private func updateViews() {
         playButton.isSelected = isPlaying // here we will know if the player is being selected and played.
         
+        // we also want to update the timer & slider
+//        TODO: Extract into helper computed properties.
+        let elapsedTime = audioPlayer?.currentTime ?? 0 // use these values if it hasn't changed
+        let duration = audioPlayer?.duration ?? 0
+        let timeRemaining = duration - elapsedTime
+        
+        
     }
     
     // MARK: - Playback
