@@ -210,7 +210,8 @@ class AudioRecorderController: UIViewController {
         if isRecording {
             stopRecording()
         } else {
-            startTimer()
+            // instead start timer we want to request permission for recording
+            requestPermissionOrStartRecording()
         }
     }
     
