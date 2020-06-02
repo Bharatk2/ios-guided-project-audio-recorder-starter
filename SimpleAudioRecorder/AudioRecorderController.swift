@@ -273,6 +273,8 @@ extension AudioRecorderController: AVAudioRecorderDelegate {
     func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
         if let recordingURL = recordingURL {
         print("finished recording: \(recordingURL.path)")
+            // this method to listen yourself when recording.
+            audioPlayer = try? AVAudioPlayer(contentsOf: recordingURL) // TODO: errors
         }
     }
     
