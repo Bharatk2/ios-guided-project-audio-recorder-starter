@@ -154,6 +154,8 @@ class AudioRecorderController: UIViewController {
     // MARK: - Recording
     
     var recordingURL: URL?
+    var audioRecorder: AVAudioRecorder?
+    
 
     func createNewRecordingURL() -> URL {
         let documents = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
@@ -198,7 +200,7 @@ class AudioRecorderController: UIViewController {
         }
     }
     
-    
+//    toggle recording
     func startRecording() {
         recordingURL = createNewRecordingURL()
         
