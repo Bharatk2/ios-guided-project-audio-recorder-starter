@@ -223,7 +223,7 @@ class AudioRecorderController: UIViewController {
         // 44_100 HRTZ = 44.1 KHz = FM / cd quality audio.
         let audioFormat = AVAudioFormat(standardFormatWithSampleRate: 44_100, channels: 1)! // if programmer error , add error mossage or log.
         audioRecorder = try? AVAudioRecorder(url: recordingURL, format: audioFormat)
-        
+        audioRecorder?.delegate = self 
         self.recordingURL = recordingURL
     }
     
