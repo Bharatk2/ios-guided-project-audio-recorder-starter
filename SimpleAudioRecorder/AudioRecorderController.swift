@@ -77,7 +77,10 @@ class AudioRecorderController: UIViewController {
         timer = nil
     }
     */
-    
+    private func updateViews() {
+        playButton.isSelected = isPlaying // here we will know if the player is being selected and played.
+        
+    }
     
     // MARK: - Playback
     
@@ -121,6 +124,7 @@ class AudioRecorderController: UIViewController {
         audioPlayer?.pause()
     }
     
+ 
     
     // MARK: - Recording
     
