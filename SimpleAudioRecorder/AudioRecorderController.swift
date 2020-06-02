@@ -139,7 +139,7 @@ class AudioRecorderController: UIViewController {
     
     func pause() {
         audioPlayer?.pause()
-        stopRecording()
+        cancelTimer()
         updateViews()
     }
     
