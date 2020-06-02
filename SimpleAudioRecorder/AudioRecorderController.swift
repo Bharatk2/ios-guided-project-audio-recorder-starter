@@ -83,7 +83,7 @@ class AudioRecorderController: UIViewController {
     
     var audioPlayer: AVAudioPlayer?
     
-    var isPlaying: Bool? {
+    var isPlaying: Bool { // business app logic
         return audioPlayer?.isPlaying ?? false // if it is not player turn it to false as default value
     }
     
@@ -105,7 +105,11 @@ class AudioRecorderController: UIViewController {
     }
     */
     func togglePlayback() {
-        
+        if isPlaying {
+            pause()
+        } else {
+            play()
+        }
     }
     
     
@@ -175,7 +179,7 @@ class AudioRecorderController: UIViewController {
     // MARK: - Actions
     
     @IBAction func togglePlayback(_ sender: Any) {
-        
+        togglePlayback()
     }
     
     @IBAction func updateCurrentTime(_ sender: UISlider) {
