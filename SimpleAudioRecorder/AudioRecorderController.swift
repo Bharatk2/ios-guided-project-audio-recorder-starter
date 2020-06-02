@@ -118,10 +118,12 @@ class AudioRecorderController: UIViewController {
     
     func play() {
         audioPlayer?.play() // don't crash if player is nil, if nothing to play, just don't do anything.
+        updateViews()
     }
     
     func pause() {
         audioPlayer?.pause()
+        updateViews()
     }
     
  
