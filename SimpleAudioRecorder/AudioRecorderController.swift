@@ -84,7 +84,11 @@ class AudioRecorderController: UIViewController {
     
     // MARK: - Playback
     
-    var audioPlayer: AVAudioPlayer?
+    var audioPlayer: AVAudioPlayer? {
+        didSet {
+            audioPlayer?.delegate = self // tell me when it finishes playing/ errors 
+        }
+    }
     
     var isPlaying: Bool { // business app logic
         return audioPlayer?.isPlaying ?? false // if it is not player turn it to false as default value
