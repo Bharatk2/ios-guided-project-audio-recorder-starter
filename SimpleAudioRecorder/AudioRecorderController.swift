@@ -51,6 +51,7 @@ class AudioRecorderController: UIViewController {
         super.viewWillAppear(animated)
         
         try? prepareAudioSession()
+        updateViews()
         
     }
     
