@@ -213,7 +213,7 @@ class AudioRecorderController: UIViewController {
     }
     
     func stopRecording() {
-        
+        audioRecorder?.stop()
     }
     
     // MARK: - Actions
