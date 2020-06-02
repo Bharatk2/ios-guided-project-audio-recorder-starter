@@ -86,7 +86,7 @@ class AudioRecorderController: UIViewController {
     
     var audioPlayer: AVAudioPlayer? {
         didSet {
-            audioPlayer?.delegate = self // tell me when it finishes playing/ errors 
+            audioPlayer?.delegate = self // tell me when it finishes playing/ errors
         }
     }
     
@@ -200,4 +200,24 @@ class AudioRecorderController: UIViewController {
         
     }
 }
-
+//Delegate
+//Asking someone else to do something fopr you
+//1. action pick up a coffee- starbucks
+extension AudioRecorderController: AVAudioPlayerDelegate {
+    
+    func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
+        DispatchQueue.main.async {
+            self.updateViews()
+        }
+        
+    }
+    
+    func audioPlayerDecodeErrorDidOccur(_ player: AVAudioPlayer, error: Error?) {
+        if let error = error {
+            print(error)
+        }
+      DispatchQueue.main.async {
+            self.updateViews()
+        }
+    }
+}
