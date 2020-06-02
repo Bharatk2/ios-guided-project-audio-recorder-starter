@@ -200,7 +200,20 @@ class AudioRecorderController: UIViewController {
         }
     }
     
+    
+    var isRecording: Bool {
+        audioRecorder?.isRecording ?? false
+    }
+    
 //    toggle recording
+    func toggleRecording() {
+        if isRecording {
+            stopRecording()
+        } else {
+            startTimer()
+        }
+    }
+    
     func startRecording() {
         // to get away from having optional here.
        let recordingURL = createNewRecordingURL()
