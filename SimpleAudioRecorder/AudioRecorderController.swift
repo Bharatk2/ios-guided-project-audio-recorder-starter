@@ -43,6 +43,15 @@ class AudioRecorderController: UIViewController {
                                                                    weight: .regular)
         
         loadAudio()
+        
+       
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        try? prepareAudioSession()
+        
     }
     
     deinit {
@@ -121,13 +130,13 @@ class AudioRecorderController: UIViewController {
         
     }
     
-    /*
+
     func prepareAudioSession() throws {
         let session = AVAudioSession.sharedInstance()
         try session.setCategory(.playAndRecord, options: [.defaultToSpeaker])
         try session.setActive(true, options: []) // can fail if on a phone call, for instance
     }
-    */
+
     func togglePlayback() {
         if isPlaying {
             pause()
